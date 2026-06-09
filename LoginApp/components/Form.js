@@ -1,31 +1,32 @@
-import {ImageBackground, StyleSheet, Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { ImageBackground, StyleSheet, Text, TextInput, Image, Button } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
-const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
+const Form = (props) => {
 
-function Form (){
-  <View>
-    
-  </View>
+    return (
+        <>
+            <Text>Join the Castle Crashers Group today!</Text>
+            <Image source={require('../assets/bannerCastleCrashers.png')} />
+            <TextInput
 
+                numberOfLines={1}
+                maxLength={40}
+                onChangeText={props.setUserName}
+                value={props.userName}
+            />
+            <TextInput
+                editable
+                numberOfLines={1}
+                maxLength={40}
+                onChangeText={props.setPassword}
+                value={props.password}
+            />
+
+            <Button
+                title='Join'
+                onPress={() => props.ChargeUser()}
+            />
+        </>)
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'white',
-    fontSize: 42,
-    lineHeight: 84,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    backgroundColor: '#000000c0',
-  },
-});
 
 export default Form;
