@@ -1,19 +1,18 @@
 import { View, ImageBackground, StyleSheet, Text, TextInput, Image, Button } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
-
 const Form = (props) => {
 
     return (
         <>
-            <View style={styles.Banner}>
+            <View style={styles.BannerSection}>
                 <Text style={styles.Title}>Join the Castle Crashers Group today!</Text>
                 <Image
                     source={require('../assets/bannerCastleCrashers.png')}
                     style={styles.BannerImg} />
             </View>
 
-            <View style={styles.InsertData}>
+            <View style={styles.DataSection}>
                 <TextInput
                     style={styles.DataInput}
                     numberOfLines={1}
@@ -34,6 +33,7 @@ const Form = (props) => {
             <View>
                 <Button
                     title='Join'
+                    color='#109e36'
                     onPress={() => props.ChargeUser()}
                 />
             </View>
@@ -41,15 +41,13 @@ const Form = (props) => {
 };
 
 const styles = StyleSheet.create({
-    Banner: {
+    BannerSection: {
         marginTop: 20,
     },
     Title: {
         fontSize: 20,
         fontWeight: 'bold',
-    },
-    BigButton: {
-
+        textAlign: 'center'
     },
     BannerImg: {
         width: '100%',
@@ -57,13 +55,20 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         marginTop: 10,
     },
-    InsertData: {
+    DataSection: {
         marginTop: 20,
         marginBottom: 20,
         textAlign: 'center',
     },
     DataInput: {
-        width: '75%',
+        width: '50%',
+        marginLeft: '25%',
+        marginRight: '25%',
+        borderWidth: 1,
+        borderRadius: 2,
+        marginTop: 1.5,
+        marginBottom: 1.5,
+        padding: 2.5
     },
 });
 

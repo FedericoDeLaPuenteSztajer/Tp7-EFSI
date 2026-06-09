@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, TextInput, Image, Button } from 'react-native';
+import { View, ImageBackground, StyleSheet, Text, TextInput, Image, Button } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 //const image = require('./assets/wrongLogIn.png');
@@ -16,30 +16,40 @@ const Message = (props) => {
 
     return (
         <>
-            <Text>{text}</Text>
-            {<Image source={img} style={styles.BannerImg}/>}
+            <View style={styles.BannerSection}>
+                <Text style={styles.Title}>{text}</Text>
+                {<Image source={img} style={styles.BannerImg} />}
+            </View>
 
-            {props.loginState == 'wrong' && <Button
-                title='Go back'
-                onPress={() => props.setUserState('logging')}
-            />}
+            {props.loginState == 'wrong' &&
+                <View>
+                    <Button
+                        title='Go back'
+                        color='#b81212'
+                        onPress={() => props.setUserState('logging')}
+                    />
+                </View >
+            }
         </>
     )
 };
 
 const styles = StyleSheet.create({
-    Title: {
-
+    BannerSection: {
+        marginTop: 20,
+        marginBottom: 20,
     },
-    BigButton: {
-
+    Title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     BannerImg: {
         width: '100%',
         height: 200,
         resizeMode: 'contain',
-    }
-
+        marginTop: 10,
+    },
 });
 
 export default Message;
