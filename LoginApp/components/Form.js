@@ -6,24 +6,23 @@ const Form = (props) => {
 
     return (
         <>
-            <View style={{ flex: 2 }}>
-                <Text>Join the Castle Crashers Group today!</Text>
+            <View style={styles.Banner}>
+                <Text style={styles.Title}>Join the Castle Crashers Group today!</Text>
                 <Image
                     source={require('../assets/bannerCastleCrashers.png')}
                     style={styles.BannerImg} />
             </View>
 
-            <View style={{
-                flex: 1,
-            }}>
+            <View style={styles.InsertData}>
                 <TextInput
-
+                    style={styles.DataInput}
                     numberOfLines={1}
                     maxLength={40}
                     onChangeText={props.setUserName}
                     value={props.userName}
                 />
                 <TextInput
+                    style={styles.DataInput}
                     editable
                     numberOfLines={1}
                     maxLength={40}
@@ -32,8 +31,7 @@ const Form = (props) => {
                 />
             </View>
 
-            <View style={{ flex: 1 }}>
-
+            <View>
                 <Button
                     title='Join'
                     onPress={() => props.ChargeUser()}
@@ -43,8 +41,12 @@ const Form = (props) => {
 };
 
 const styles = StyleSheet.create({
+    Banner: {
+        marginTop: 20,
+    },
     Title: {
-
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     BigButton: {
 
@@ -53,8 +55,16 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200,
         resizeMode: 'contain',
-    }
-
+        marginTop: 10,
+    },
+    InsertData: {
+        marginTop: 20,
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    DataInput: {
+        width: '75%',
+    },
 });
 
 export default Form;
