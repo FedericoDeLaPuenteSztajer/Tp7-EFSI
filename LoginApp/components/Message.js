@@ -17,7 +17,7 @@ const Message = (props) => {
     return (
         <>
             <Text>{text}</Text>
-            {<Image source={img} />}
+            {<Image source={img} style={styles.BannerImg}/>}
 
             {props.loginState == 'wrong' && <Button
                 title='Go back'
@@ -26,5 +26,20 @@ const Message = (props) => {
         </>
     )
 };
+
+const styles = StyleSheet.create({
+    Title: {
+
+    },
+    BigButton: {
+
+    },
+    BannerImg: {
+        width: '100%',
+        height: 200,
+        resizeMode: 'contain',
+    }
+
+});
 
 export default Message;

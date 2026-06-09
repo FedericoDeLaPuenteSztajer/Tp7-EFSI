@@ -21,7 +21,10 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={{
+        padding: 15,
+        flexDirection: 'column',
+      }}>
         {loginState == "logging" && <Form ChargeUser={ChargeUser} userName={userName} setUserName={setUserName} password={password} setPassword={setPassword} />}
         {(loginState == "completed" || loginState == "wrong") && <Message loginState={loginState} setUserState={setUserState} />} 
       </SafeAreaView>
